@@ -1,0 +1,10 @@
+#Chaves API
+.env
+.env.*
+!.env.example
+
+#Ambiente Virtual
+venv/
+
+#Configurações locais
+.vscode/
