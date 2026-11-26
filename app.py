@@ -194,7 +194,7 @@ if pergunta := st.chat_input("Digite sua pergunta..."):
                     #recupera o numero da pagina (começando em zero)
                     pagina = doc.metadata.get("page", 0) + 1
                     
-                    contexto +- f"""
+                    contexto += f"""
                     Documento: {nome_pdf}
                     Página: {pagina}
                     
