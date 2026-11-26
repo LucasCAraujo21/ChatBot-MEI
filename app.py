@@ -241,7 +241,7 @@ if pergunta := st.chat_input("Digite sua pergunta..."):
                     fontes = set()
                     
                     for doc in documentos:
-                        nome_pdf = Path(doc.Metadata["source"]).name
+                        nome_pdf = Path(doc.metadata["source"]).name
                         pagina = doc.metadata.get("page", 0)+1
                         
                         fontes.add((nome_pdf, pagina))
