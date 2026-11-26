@@ -11,10 +11,18 @@ from pathlib import Path
 #1. CONFIGURAÇÃO DA API GROQ
 
 # Carrega as variáveis armazenadas no arquivo .env
+
 load_dotenv()
 
+
 # Verifica se a chave GROQ_API_KEY está disponível
-if not os.getenv("GROQ_API_KEY"):
+
+api_key =  st.secrets.get(
+    "GROQ_API_KEY",
+    os.getenv("GROQ_API_KEY")
+)
+
+if not api_key:
 
     # Exibe uma mensagem de erro na interface Streamlit
     st.error("Configure a chave GROQ_API_KEY no arquivo .env")
@@ -84,7 +92,7 @@ def iniciar_rag(arquivos_pdf):
     llm = ChatGroq(
         model="openai/gpt-oss-120b",
         temperature=0,
-        api_key=os.getenv("GROQ_API_KEY")
+        api_key=api_key
     )
 
     return retriever, llm
